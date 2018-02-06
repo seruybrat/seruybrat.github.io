@@ -1,0 +1,476 @@
+<!doctype html>
+<html>
+<head lang="en">
+  <meta charset="UTF-8">
+  <title>asd</title>
+  <style>
+    *{margin:0;padding: 0;box-sizing: border-box}
+
+   
+    :root{
+    	--main-color: #f9e900;
+    }
+    body {
+      color: #333;
+      margin: 0;
+      padding: 0;
+      font-size: 20px;
+      line-height: 1.6;
+    }
+    .icon-logo { width: 3.66em; height: 1em; fill: #221F20; }
+    .icon-desktop { width: 1.41em; height: 1em; fill: #000; }
+    .icon-link { width: 2em; height: 1em; fill: #000; }
+    .icon-mobile { width: 0.59em; height: 1em; fill: #000; }
+    .icon-tablet { width: 0.79em; height: 1em; fill: #000; }
+    .icon-watch { width: 0.67em; height: 1em; fill: #000; }
+    .icon-wide { width: 1.1em; height: 1em; fill: #000; }
+
+    section{
+      width: 300px;
+      padding: 30px 0;
+    }
+
+    .preview{
+      width: 100%;
+      height: 100vh;
+      
+    }
+    iframe{
+		opacity: 1;
+		box-shadow: 0 0 8px rgba(#000,.5);
+		margin: 0 auto;
+		transform-origin: 0 0;
+		box-shadow: 0 0 20px rgba(0,0,0,.6);
+    }
+
+
+    .preview footer{
+      position: absolute;
+      bottom: -50px;
+      right: 0;
+      left: 0;
+      padding: 0;
+    }
+    .preview footer a{
+    	color: #000;
+    }
+
+    .pagelist{
+      list-style-type: none;
+      padding-top: 100px;
+      width: 275px;
+    }
+    .pagelist li{
+      margin-bottom: 25px;
+    }
+    .pagelist li:last-child{
+    	margin-bottom: 0;
+    }
+
+    .pagelist__preview{
+      display: inline-block;
+      box-shadow: none;
+      padding: 5px 20px;
+      border: 1px solid #000;
+      font-size: 13px;
+      margin-top: 10px;
+      text-transform: uppercase;
+      text-shadow: none;
+      font-size: 24px;
+    }
+    .pagelist__title{
+      color: #000;
+      text-decoration: none;
+      padding: 5px 8px 5px 3px;
+      position: relative;
+      left: -3px;
+    }
+    .is-notready .pagelist__title{
+      color: #aaaaaa;
+      background: #fff;
+      pointer-events: none;
+    }
+    .pagelist__title span{
+      margin-right: 5px;
+    }
+    .pagelist__title em{
+      font-style: normal;
+      font-weight: normal;
+      font-family: 'PoliticaBold',sans-serif;
+      position: relative;
+      display: inline-block;
+    }
+    .pagelist__title em:before{
+      content: "";
+      position: absolute;
+      bottom: 4px;
+      width: 100%;
+      left: 0;
+      border-top: 1px solid currentColor;
+    }
+    .pagelist__title.is-active{
+      background: #000;
+      color: #fff;
+    }
+    .pagelist__url{
+      width: 24px;
+      height: 24px;
+      border-radius: 4px;
+      background: #f9e900;
+      background: var(--main-color);
+      display: inline-block;
+      position: relative;
+      vertical-align: middle;
+      margin-left: 4px;
+    }
+    .is-notready .pagelist__url{
+      background: #eeeeee;
+      pointer-events: none;
+    }
+    .pagelist__url .icon{
+      fill: #000;
+      font-size: 10px;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%,-50%);
+    }
+    .is-notready .pagelist__url .icon{
+      fill:#aaaaaa;
+    }
+    .pagelist__progress{
+      height: 4px;
+      background: #eeeeee;
+      margin-top: 5px;
+    }
+    .pagelist__progress i{
+      height: 4px;
+      display: block;
+      background: #f9e900;
+      background: var(--main-color);
+    }
+
+
+
+    header{
+      overflow: hidden;
+      line-height: 1;
+      /*height: 100px;*/
+      height: 90px;
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 200;
+      background: #fff;
+    }
+    header h1{
+      background: #f9e900;
+      background: var(--main-color);
+      height: 91px;
+      position: relative;
+      width: 242px;
+      display: inline-block;
+      vertical-align: top;
+    }
+    header h1:before{
+      width: 200px;
+      height: 200px;
+      position: absolute;
+      right: 0;
+      bottom: 0;
+      content: "";
+      background: #f9e900;
+      background: var(--main-color);
+      transform: rotate(38deg);
+      transform-origin: 100% 100%;
+    }
+    header h1 a{
+      display: block;
+      position: absolute;
+      left: 42px;
+      top: 22px;
+      
+    }
+    header h1 .icon{
+      font-size: 47px;
+    }
+    .header__updated{
+      font-size: 24px;
+      height: 90px;
+      line-height: 90px;
+      color: #050a0f;
+      display: inline-block;
+      vertical-align: top;
+      margin-left: 80px;
+    }
+    .header__updated em{
+      font-weight: normal;
+      font-family: 'PoliticaBold',sans-serif;
+      font-style: normal;
+    }
+    .types{
+      position: absolute;
+      right: 40px;
+      top: 24px;
+    }
+    .types button,.types button:active{
+      height: 46px;
+      width: 112px;
+      border: 1px solid #eee;
+      background: #fff;
+      font-size: 14px;
+      color: #000;
+      text-align: left;
+      font-family: 'Politica', serif;
+      padding-left: 38px;
+      position: relative;
+      outline: none;
+    }
+    .types strong{
+      font-weight: normal;
+      font-family: 'PoliticaBold',sans-serif;
+    }
+    .types .icon{
+      position: absolute;
+      top: 50%;
+      left: 10px;
+      transform: translate(0, -50%);
+      font-size: 20px;
+    }
+    .types .icon-desktop{left: 5px;}
+    .types .icon-wide{left: 8px;}
+
+    .types button.is-active{
+      border-color: #000;
+      color: #fff;
+      background: #000;
+    }
+    .types button.is-active .icon{
+      color: #fff;
+      fill: #fff;
+    }
+    .types span{
+      display: block;
+    }
+    footer{
+      font-size: 15px;
+      text-align: center;
+      padding: 20px 50px;
+      text-align: left;
+      margin-top: 100px;
+    }
+    @media (max-width: 1200px){
+      .header__updated{
+        position: absolute;
+        right: 42px;
+        bottom: 0;
+        line-height: 1;
+        height: auto;
+        margin: 0;
+        font-size: 14px;
+      }
+    }
+    @media (max-width: 780px){
+      body{
+        padding: 0;
+      }
+      .preview iframe,.types{
+        display: none;
+      }
+      .preview{
+      	position: static;
+      	text-align: center;
+      }
+      .preview footer{
+      	position: static;
+      	text-align: center;
+      	margin: 0;
+      	padding: 0 0 20px 0;
+      }
+      header{
+        position: relative;
+        height: auto;
+        text-align: center;
+      }
+      header h1{
+        display: block;
+        width: auto;
+        height: auto;
+        padding: 20px 0 30px;
+      }
+      header h1 a{
+        position: static;
+      }
+      header .icon{
+        font-size: 30px;
+      }
+      .header__updated{
+        display: block;
+        text-align: center;
+        font-size: 14px;
+        line-height: 1;
+        text-align: center;
+        padding: 0;
+        height: auto;
+        margin: 0;
+        position: absolute;
+        bottom: 10px;
+        left: 0;
+        right: 0;
+      }
+      section{
+        margin: 0;
+        width: auto;
+        padding: 0;
+      }
+      .pagelist{
+        margin: 0;
+        padding: 20px;
+        width: auto;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <aside class="preview" id="preview-wrapper">
+    
+    <iframe id="preview"  width="100%" height="100%" src="page.html"  frameborder="0"></iframe>
+   
+  </aside>
+
+
+  <script>
+    var navs = document.querySelectorAll('button');
+    var body = document.querySelectorAll('body')[0];
+    var previewButtons = document.querySelectorAll('.pagelist__title');
+    var iframe = document.getElementById('preview');
+    var previewWrapper = document.getElementById('preview-wrapper');
+    // colors
+    var colors = ['#f9e900','#ddd','#afd702','#add8e6','#f03a96'];
+
+    if(localStorage.getItem('main-color')){
+    	document.documentElement.style.setProperty(`--main-color`, localStorage.getItem('main-color'));
+    }
+
+    body.addEventListener('dblclick', function(event) {
+    	colors = colors.concat(colors.splice(0,1));
+    	document.documentElement.style.setProperty(`--main-color`, colors[0]);
+    	localStorage.setItem('main-color', colors[0]);
+    });
+    // end colors
+
+    function removeActive(){
+      [].forEach.call(previewButtons, function(button) {
+        button.classList.remove('is-active');
+      });
+    }
+
+    function getScrollbarWidth() {
+        var outer = document.createElement("div");
+        outer.style.visibility = "hidden";
+        outer.style.width = "100px";
+        outer.style.msOverflowStyle = "scrollbar"; // needed for WinJS apps
+
+        document.body.appendChild(outer);
+
+        var widthNoScroll = outer.offsetWidth;
+        // force scrollbars
+        outer.style.overflow = "scroll";
+
+        // add innerdiv
+        var inner = document.createElement("div");
+        inner.style.width = "100%";
+        outer.appendChild(inner);        
+
+        var widthWithScroll = inner.offsetWidth;
+
+        // remove divs
+        outer.parentNode.removeChild(outer);
+
+        return widthNoScroll - widthWithScroll;
+    }
+    var  scrollbarwidth = getScrollbarWidth();
+
+    [].forEach.call(previewButtons, function(button) {
+      button.addEventListener('click', function(event) {
+      	
+      	if(window.innerWidth < 780){return;}
+        event.preventDefault();
+        removeActive();
+        var el = event.currentTarget;
+        el.classList.add('is-active');
+        iframe.src = el.href;
+      }, false);
+    });
+
+    
+    var mode = 'wide';
+    [].forEach.call(navs, function(nav) {
+      nav.addEventListener('click', function(event) {
+          event.preventDefault();
+          mode = event.currentTarget.dataset.mode;
+          iframe.style.width = parseInt(event.currentTarget.getAttribute('data-width')) + parseInt(scrollbarwidth) + 'px';
+
+          body.setAttribute('data-mode','is-' + mode);
+
+
+          [].forEach.call(navs, function(nav) {
+            nav.classList.remove('is-active');
+          })
+          event.currentTarget.classList.add('is-active');
+
+          setIframeWidth();
+      }, false);
+
+      function setIframeWidth(){
+        // getting preview area width
+        var pwidth = previewWrapper.offsetWidth;
+        var pheight = previewWrapper.offsetHeight;
+
+        // iframe width
+        var iwidth = iframe.offsetWidth;
+        var iheight = iframe.offsetHeight;
+
+        var scaleV = pheight/iheight;
+        var scaleH = pwidth/iwidth;
+
+        if(mode=='mobile'){
+          iframe.style.transform = 'scale('+ 1 +')';
+          iframe.style.height =  pheight + 'px';
+
+          
+          return;
+        }
+        if(scaleH>1){scaleH = 1;}
+        iframe.style.transform = 'scale('+ scaleH +')';
+
+        iframe.style.height =  pheight/scaleH + 'px';
+        // console.log(pheight*(2 - scaleV) + 'px');
+
+        var realheight = iframe.getBoundingClientRect().height;
+
+        if(realheight>pheight){
+          iframe.style.transform = 'scale('+ scaleV +')';
+        }
+
+
+
+        console.log(scaleV,scaleH);
+      }
+
+      setIframeWidth();
+      // resize event
+      window.addEventListener("resize", function(){
+        setIframeWidth();
+      });
+
+
+    });
+  </script>
+  
+</body>
+</html>
+
+
