@@ -1,0 +1,101 @@
+.icon {
+    font-size: 10px;
+}
+
+.icon:before {
+    content:' ';
+    vertical-align:middle;
+    display: inline-block;
+    background-image: url("../svg/sprite.svg");
+    background-repeat: no-repeat;
+    background-size: 11em 23.8em;
+}
+
+.no-svg .icon:before {
+    background-image: url("../svg/sprite.png");
+}
+
+
+
+  .icon.android:before {
+      background-position: 0em 0em;
+      width: 11em;
+      height: 3.7em;
+  }
+
+
+
+
+  .icon.appstore:before {
+      background-position: 0em -3.7em;
+      width: 11em;
+      height: 3.6em;
+  }
+
+
+
+
+  .icon.arrow:before {
+      background-position: 0em -7.3em;
+      width: 4.2em;
+      height: 4.2em;
+  }
+
+
+
+
+  .icon.facebook:before {
+      background-position: 0em -11.5em;
+      width: 2.4em;
+      height: 2.4em;
+  }
+
+
+
+
+  .icon.googleplus:before {
+      background-position: 0em -13.9em;
+      width: 2.5em;
+      height: 2.4em;
+  }
+
+
+
+
+  .icon.linkedin:before {
+      background-position: 0em -16.3em;
+      width: 2.5em;
+      height: 2.4em;
+  }
+
+
+
+
+  .icon.palms-footer:before {
+      background-position: 0em -18.7em;
+      width: 6.3em;
+      height: 1.1300000000000001em;
+  }
+
+
+
+
+  .icon.palms-logo:before {
+      background-position: 0em -19.9em;
+      width: 8.4em;
+      height: 1.5em;
+  }
+
+
+
+
+  .icon.twitter:before {
+      background-position: 0em -21.4em;
+      width: 2.5em;
+      height: 2.4em;
+  }
+
+
+
+
+
